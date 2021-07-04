@@ -111,3 +111,21 @@ exports.delete = (req, res) => {
       });
     });
 };
+
+// Delete all Tutorials from the database.
+exports.deleteAll = (req, res) => {
+  Columns.destroy({
+    where: {},
+    truncate: false
+  })
+    .then(nums => {
+      res.send({ message: `${nums} Columns were deleted successfully!` });
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while removing all columns."
+      });
+    });
+};
+

@@ -13,5 +13,7 @@ module.exports = app => {
   
     router.delete("/:id", columns.delete);
 
+    router.delete("/", columns.deleteAll);
+
     app.use('/api/columns', router);
   };
